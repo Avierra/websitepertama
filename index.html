@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JihanWebsite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HALAMAN HELLO -->
+  <section id="helloPage" class="page active">
+    <h1 style="font-size: 80px !important; font-weight: bold !important; color: white !important; text-shadow: 0 4px 12px rgba(0,0,0,0.3) !important; margin-bottom: 40px !important; z-index: 10 !important; position: relative !important;">HELLO.</h1>
+    <div class="button-container">
+      <button class="btn" onclick="goToBlog()">CLICK ME</button>
+    </div>
+
+    <!-- Bubble -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <!-- Partikel -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </section>
+
+  
+
+  <!-- Halaman BLOG -->
+  <section id="blogPage" class="page">
+    <h1>Selamat Datang di Dunia Informatika</h1>
+    <div class="grid">
+      <div class="post" onclick="openPage('page1')">
+        <h2>Apa Saja yang Dipelajari di mata Pelajaran Informatika?</h2>
+      </div>
+      <div class="post" onclick="openPage('page2')">
+        <h2>Postingan 2</h2>
+      </div>
+      <div class="post" onclick="openPage('page3')">
+        <h2>Postingan 3</h2>
+      </div>
+      <div class="post" onclick="openPage('page4')">
+        <h2>Postingan 4</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Halaman Detail Post -->
+  <section id="page1" class="page">
+    <h1>Informatika untuk Kehidupan Digital</h1>
+    <h1>Apa Saja Yang Dipelajari Di informatika?</h1>
+    <h2> 1. TIK (Teknologi Informasi dan Komunikasi)
+    Belajar kenal sama dunia digital: 
+    komputer, HP, sampai aplikasi online. 
+    Intinya, gimana cara pake teknologi biar 
+    kerjaan dan komunikasi jadi lebih gampang.
+    </h2> 
+    <h2>
+      2. Sistem Komputer (SK)
+      Ngulik isi dalam komputer—dari hardware kayak CPU & RAM, 
+      sampai software kayak aplikasi dan sistem operasi. 
+      Jadi paham gimana komputer bisa “jalan”.
+    </h2>
+    <h2>
+      3. Jaringan Komputer & Internet (JKI)
+      Tau cara komputer saling nyambung lewat jaringan (LAN, WAN, internet). 
+      Plus, diajarin juga cara main internet yang aman dan bijak.
+    </h2>
+    <h2>
+      4. Analisis Data (AD)
+      Gak cuma ngumpulin data, tapi juga ngolah
+      dan bikin grafik/tabel biar gampang dimengerti. 
+      Berguna banget buat ambil keputusan.
+    </h2>
+    <h2>
+       5. Algoritma & Pemrograman (AP)
+       Belajar mikir step by step buat nyelesain masalah, terus praktek coding dasar. 
+       Jadi tau gimana bikin instruksi atau program sederhana.
+    </h2>
+    <h2>
+      6. Dampak Sosial Informatika (DSI)
+      Ngomongin dampak teknologi buat kehidupan sehari-hari—baik atau buruk. 
+      Termasuk etika digital dan tanggung jawab. contoh dampaknya adalah cyberbullying
+      ataupun kemudahan akses informasi
+    </h2>
+     
+
+  <button onclick="backToBlog()">Kembali</button>
+  </section>
+
+
+
+
+  <section id="page2" class="page">
+    <h1>Postingan 2</h1>
+    <p>Ini penjelasan lengkap postingan kedua.</p>
+    <button onclick="backToBlog()">Kembali</button>
+  </section>
+
+  <section id="page3" class="page">
+    <h1>Postingan 3</h1>
+    <p>Ini penjelasan lengkap postingan ketiga.</p>
+    <button onclick="backToBlog()">Kembali</button>
+  </section>
+
+  <section id="page4" class="page">
+    <h1>Postingan 4</h1>
+    <p>Ini penjelasan lengkap postingan keempat.</p>
+    <button onclick="backToBlog()">Kembali</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

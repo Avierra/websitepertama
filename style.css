@@ -1,0 +1,405 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* cegah scroll */
+  font-family: Arial, sans-serif;
+}
+
+/* Semua halaman default hidden */
+.page {
+  display: none;
+  height: 100vh;      /* full 1 layar */
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+  position: absolute; /* tumpuk di posisi sama */
+  top: 0;
+  left: 0;
+}
+
+/* Halaman aktif */
+.page.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  z-index: 1;
+}
+
+/* === HALAMAN HELLO === */
+#helloPage {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* biar bubble nggak keluar layar */
+}
+
+.hello-text {
+  font-size: 80px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.btn {
+  padding: 15px 50px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(90deg, #ff0080, #7928ca);
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.6),
+              0 0 40px rgba(121, 40, 202, 0.6);
+  animation: pulseGlow 2s infinite; /* animasi glow */
+  transition: transform 0.3s;
+  z-index: 1;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+/* Animasi glow tombol */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.6),
+                0 0 30px rgba(121, 40, 202, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 0, 128, 0.9),
+                0 0 60px rgba(121, 40, 202, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.6),
+                0 0 30px rgba(121, 40, 202, 0.6);
+  }
+}
+
+/* Bubble */
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  animation: rise 10s linear infinite;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Partikel kecil */
+.particle {
+  position: absolute;
+  bottom: -20px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  animation: riseSmall 6s linear infinite;
+}
+
+@keyframes riseSmall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* === HALAMAN BLOG === */
+#blogPage {
+  background: #f3f0ff;
+  flex-direction: column;
+  padding: 40px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+  gap: 25px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.post {
+  background: #ede9fe;
+  border-radius: 12px;
+  padding: 20px;
+  height: 180px;              /* ukuran sedang */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.post:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Tombol kembali di halaman detail */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #6d28d9;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #7c3aed;
+}
+
+
+/* === HALAMAN BLOG === */
+#blogPage {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  flex-direction: column;
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+}
+
+#blogPage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 0;
+}
+
+#blogPage > * {
+  position: relative;
+  z-index: 1;
+}
+
+#blogPage h1 {
+  font-size: 42px !important;
+  color: white !important;
+  margin-bottom: 50px !important;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 35px 25px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.post::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s;
+}
+
+.post:hover::before {
+  left: 100%;
+}
+
+.post:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.post h2 {
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  z-index: 2;
+  position: relative;
+}
+
+/* Styling untuk halaman detail */
+#page1, #page2, #page3, #page4 {
+  background: linear-gradient(135deg, #d95fe7 0%, #f5576c 100%);
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+}
+
+#page1::before, #page2::before, #page3::before, #page4::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 0;
+}
+
+#page1 > *, #page2 > *, #page3 > *, #page4 > * {
+  position: relative;
+  z-index: 1;
+}
+
+#page1 h1, #page2 h1, #page3 h1, #page4 h1 {
+  font-size: 36px !important;
+  color: white !important;
+  margin-bottom: 30px !important;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+  font-weight: 700 !important;
+}
+
+#page1 p, #page2 p, #page3 p, #page4 p {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  font-weight: 400;
+}
+
+/* Tombol kembali di halaman detail */
+button {
+  margin-top: 20px;
+  padding: 15px 35px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #helloPage h1 {
+    font-size: 60px !important;
+  }
+  
+  #blogPage h1 {
+    font-size: 32px !important;
+  }
+  
+  .btn {
+    font-size: 18px;
+    padding: 12px 40px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .post {
+    height: 160px;
+    font-size: 20px;
+    padding: 25px 20px;
+  }
+  
+  #blogPage {
+    padding: 40px 20px;
+  }
+  
+  #page1, #page2, #page3, #page4 {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #helloPage h1 {
+    font-size: 48px !important;
+  }
+  
+  #blogPage h1 {
+    font-size: 28px !important;
+  }
+  
+  .post {
+    height: 140px;
+    font-size: 18px;
+  }
+}
+
+.page {
+    overflow-y: auto;
+    height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+.page h2 {
+  margin-bottom: 20px;
+}
+
+
